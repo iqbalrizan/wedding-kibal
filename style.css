@@ -1,3 +1,110 @@
-h2, h1 {
-    font-family: sacramento;
-}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #fcefe3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;              /* ❗ Lock full viewport */
+    overflow: hidden;           /* ❗ Hide scroll before open */
+    transition: height 0.5s ease;
+  }
+  body.unlocked {
+    height: auto;               /* ❗ Unlock height */
+    overflow: auto;             /* ❗ Enable scroll */
+  }
+  
+  
+  
+  .open-btn {
+    margin-top: 100px;
+    padding: 12px 24px;
+    font-size: 18px;
+    background-color: #d99b6c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.4s ease;
+    z-index: 2;
+  }
+  
+  .open-btn.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .invitation-card {
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    perspective: 1000px;
+    margin: 40px auto;
+    position: relative;
+  }
+  
+  .invitation-inner {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .invitation-card.open .invitation-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .invitation-front,
+  .invitation-back {
+    position: absolute;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    padding: 40px;
+    box-sizing: border-box;
+  }
+  
+  .invitation-front {
+    background-color: #fff8f2;
+    text-align: center;
+    z-index: 1;
+  }
+  
+  .invitation-front h2 {
+    font-family: 'Sacramento', cursive;
+    font-size: 36px;
+    color: #b56c44;
+  }
+  
+  .invitation-back {
+    background-color: #fff;
+    transform: rotateY(180deg);
+    text-align: center;
+    padding-bottom: 80px;
+  }
+  
+  .invitation-back h1 {
+    font-family: 'Sacramento', cursive;
+    font-size: 48px;
+    color: #b56c44;
+    margin-bottom: 10px;
+  }
+  
+  .invitation-back p {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .invitation-content {
+    margin-top: 30px;
+    text-align: left;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.7;
+  }
+  
